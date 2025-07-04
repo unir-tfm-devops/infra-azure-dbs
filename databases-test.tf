@@ -11,4 +11,18 @@ module "spring_boot_template_test" {
   providers = {
     postgresql = postgresql.test
   }
+} 
+
+module "products_service_test" {
+  source = "./modules/database"
+
+  database_name = "products-service-test"
+  username      = "products-service-test-user"
+  password      = "products-service-test-password"
+
+  depends_on = [time_sleep.wait_for_db]
+
+  providers = {
+    postgresql = postgresql.test
+  }
 }
