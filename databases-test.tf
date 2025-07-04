@@ -11,7 +11,7 @@ module "spring_boot_template_test" {
   providers = {
     postgresql = postgresql.test
   }
-} 
+}
 
 module "products_service_test" {
   source = "./modules/database"
