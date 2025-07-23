@@ -12,3 +12,17 @@ module "spring_boot_template_prod" {
     postgresql = postgresql.prod
   }
 }
+
+module "nodejs_template_prod" {
+  source = "./modules/database"
+
+  database_name = "nodejs-template-prod"
+  username      = "nodejs-template-prod-user"
+  password      = "nodejs-template-prod-password"
+
+  depends_on = [time_sleep.wait_for_db]
+
+  providers = {
+    postgresql = postgresql.prod
+  }
+}
